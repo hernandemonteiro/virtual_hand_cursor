@@ -38,7 +38,8 @@ cd virtual-hand-cursor
 
 ## Demonstração
 
- <!-- Adicionar link para um vídeo de demonstração-->
+ Você pode conhecer nosso projeto clicando em -> [demo](https://hernandemonteiro.github.io/virtual_hand_cursor/).
+ Alguns navegadores podem não aceitar a aplicação devido ao suporte de WEBGL, mas o Chrome e o Firefox podem atender bem as expectativas.
 
 ## Contribuições
 
