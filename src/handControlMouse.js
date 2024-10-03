@@ -69,7 +69,7 @@ function isHandClosed(hand) {
   const ringTipY = hand.landmarks[16][1];
   const pinkyTipY = hand.landmarks[20][1];
 
-  const threshold = 20;
+  const threshold = 25;
   return (
     thumbTipY < indexTipY + threshold &&
     thumbTipY < middleTipY + threshold &&
@@ -85,7 +85,7 @@ function debouncePlayPause() {
 
   debounceTimeout = setTimeout(() => {
     playPauseVideo();
-  }, 300);
+  }, 200);
 }
 
 function playPauseVideo() {
