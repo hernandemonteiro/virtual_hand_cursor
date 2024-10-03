@@ -46,9 +46,13 @@ cd virtual-hand-cursor
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 1 - Faça um fork do projeto.
+
 2 - Crie uma nova branch (git checkout -b feature/nome-da-sua-feature).
+
 3 - Faça suas alterações e confirme-as (git commit -m 'Adiciona nova funcionalidade').
+
 4 - Envie para o repositório remoto (git push origin feature/nome-da-sua-feature).
+
 5 - Abra um pull request.
 
 ## Licença
