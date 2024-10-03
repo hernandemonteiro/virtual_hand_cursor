@@ -13,6 +13,7 @@ document.body.appendChild(cursorIndicator);
 let model;
 let video;
 let lastPosition = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+let handState = "start";
 
 async function startCamera() {
   video = document.createElement("video");
@@ -47,11 +48,13 @@ async function detectHand() {
 
     moveCursor(cursorX, cursorY);
 
-    if (isHandClosed(hand)) {
+    if (isHandClosed(hand) && handState !== "closed") {
       document.getElementById("title").innerText = "Mão fechada!";
+      handState = "closed";
       playSound();
     } else {
       document.getElementById("title").innerText = "Mão aberta!";
+      handState = "open";
     }
   }
 
