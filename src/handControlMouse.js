@@ -13,7 +13,7 @@ document.body.appendChild(cursorIndicator);
 let model;
 let video;
 let lastPosition = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-let handState = "start";
+let debounceTimeout;
 
 async function startCamera() {
   video = document.createElement("video");
@@ -35,7 +35,6 @@ async function startCamera() {
 
 async function loadModel() {
   model = await handpose.load();
-  document.getElementById("title").innerText = "Movimente sua mão!";
 }
 
 async function detectHand() {
@@ -46,16 +45,14 @@ async function detectHand() {
     const cursorX = video.width - hand.landmarks[9][0];
     const cursorY = hand.landmarks[9][1];
 
-    moveCursor(cursorX, cursorY);
-
-    if (isHandClosed(hand) && handState !== "closed") {
+    if (isHandClosed(hand)) {
       document.getElementById("title").innerText = "Mão fechada!";
-      handState = "closed";
-      playSound();
+      debouncePlayPause();
     } else {
       document.getElementById("title").innerText = "Mão aberta!";
-      handState = "open";
     }
+
+    moveCursor(cursorX, cursorY);
   }
 
   requestAnimationFrame(detectHand);
@@ -81,7 +78,17 @@ function isHandClosed(hand) {
   );
 }
 
-function playSound() {
+function debouncePlayPause() {
+  if (debounceTimeout) {
+    clearTimeout(debounceTimeout);
+  }
+
+  debounceTimeout = setTimeout(() => {
+    playPauseVideo();
+  }, 300);
+}
+
+function playPauseVideo() {
   const audio = document.getElementById("audio");
 
   if (audio.paused) {
@@ -94,6 +101,7 @@ function playSound() {
 async function init() {
   await startCamera();
   await loadModel();
+  document.getElementById("title").innerText = "Movimente sua mão!";
   detectHand();
 }
 
