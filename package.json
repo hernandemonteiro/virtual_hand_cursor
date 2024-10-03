@@ -1,6 +1,6 @@
 {
   "name": "virtual-hand-cursor",
-  "description": "Controle de cursor por camêra com tensorflow.",
+  "description": "Controle de cursor por câmera com tensorflow.",
   "version": "1.0.0",
   "main": "handControlMouse.js",
   "author": {
