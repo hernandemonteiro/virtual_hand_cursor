@@ -1,0 +1,14 @@
+{
+  "name": "virtual-hand-cursor",
+  "description": "Controle de cursor por camêra com tensorflow.",
+  "version": "1.0.0",
+  "main": "handControlMouse.js",
+  "author": {
+    "name": "Hernande Monteiro Bezerra",
+    "email": "monteiro1998@live.com"
+  },
+  "scripts": {
+    "start": "http-server"
+  },
+  "license": "MIT"
+}
