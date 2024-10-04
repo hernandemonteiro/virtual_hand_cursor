@@ -3,23 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Controle de Mão para Mouse</title>
-
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
-    <script defer type="module" src="./src/handControlMouse.js"></script>
+    <title>Controle de Mão para Mouse Virtual</title>
   </head>
   <body>
-    <div>
-      <audio
-        id="audio"
-        src="./assets/relaxing-guitar-loop-v5-245859.mp3"
-        type="audio/mpeg"
-        controls
-      ></audio>
-    </div>
     <h1 id="title">Carregando modelo...</h1>
+    <audio
+      id="audio"
+      src="./assets/relaxing-guitar-loop-v5-245859.mp3"
+      controls
+    ></audio>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
+    <script src="./src/handControlMouse.js"></script>
   </body>
 </html>
