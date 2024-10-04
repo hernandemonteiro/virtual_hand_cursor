@@ -1,5 +1,10 @@
 # Virtual Hand Cursor
-
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-DEVELOPMENT-green"/>
+  <img src="https://img.shields.io/badge/VERSION-1.0.0-green"/>
+  <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
+  <img src="https://img.shields.io/badge/platform-web-blue"/>
+</p>
 <img src="./assets/Controle de Mão para Mouse.png"/>
 
 ## Descrição
@@ -13,6 +18,11 @@ O <b>`Virtual Hand Cursor`</b> é uma aplicação interativa que utiliza a detec
 - <b>Espelhamento da Câmera:</b> A visualização da câmera é espelhada para facilitar a interação.
 
 ## Tecnologias Usadas
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![WebRTC](https://img.shields.io/badge/WebRTC-880500?logo=any&logoColor=white&style=for-the-badge)
+![WebGL](https://img.shields.io/badge/WebGL-990000?logo=webgl&logoColor=white&style=for-the-badge)
 
 - JavaScript: Para a lógica de interação.
 - TensorFlow.js: Para detecção de mãos usando o modelo Handpose.
