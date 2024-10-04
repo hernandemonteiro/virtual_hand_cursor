@@ -39,23 +39,27 @@ async function loadModel() {
 
 async function detectHand() {
   const predictions = await model.estimateHands(video);
+  handleHandDetection(predictions);
+  requestAnimationFrame(detectHand);
+}
 
+function handleHandDetection(predictions) {
   if (predictions.length > 0) {
     const hand = predictions[0];
-    const cursorX = video.width - hand.landmarks[9][0];
+    const cursorX = video.videoWidth - hand.landmarks[9][0];
     const cursorY = hand.landmarks[9][1];
 
-    if (isHandClosed(hand)) {
-      document.getElementById("title").innerText = "Mão fechada!";
+    if (isHandClosed(hand) && isArmRaised(hand)) {
+      document.getElementById("title").innerText =
+        "Mão fechada e braço levantado!";
       debouncePlayPause();
     } else {
-      document.getElementById("title").innerText = "Mão aberta!";
+      document.getElementById("title").innerText =
+        "Mão aberta ou braço abaixado!";
     }
 
     moveCursor(cursorX, cursorY);
   }
-
-  requestAnimationFrame(detectHand);
 }
 
 function moveCursor(x, y) {
@@ -78,11 +82,15 @@ function isHandClosed(hand) {
   );
 }
 
-function debouncePlayPause() {
-  if (debounceTimeout) {
-    clearTimeout(debounceTimeout);
-  }
+function isArmRaised(hand) {
+  const wristY = hand.landmarks[0][1];
+  const elbowY = hand.landmarks[7][1];
 
+  return elbowY < wristY;
+}
+
+function debouncePlayPause() {
+  clearTimeout(debounceTimeout);
   debounceTimeout = setTimeout(() => {
     playPauseVideo();
   }, 200);
